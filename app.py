@@ -276,6 +276,9 @@ def display_results(llm_result, content_result, ground_truth="", llm_name="LLM")
         if hasattr(llm_result, 'annotations') and llm_result.annotations:
             with st.expander("Annotations"):
                 st.json(llm_result.annotations)
+        if hasattr(llm_result, 'raw_response') and llm_result.raw_response:
+            with st.expander("Raw Response"):
+                st.json(llm_result.raw_response)
 
     with text_col2:
         st.subheader("Content Understanding Result")
